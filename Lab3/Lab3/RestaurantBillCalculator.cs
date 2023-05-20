@@ -45,7 +45,7 @@ namespace Lab3
 
         public static double CalculateIndividualCost(StreamReader input, double totalCost)
         {
-            int personCount = int.Parse(input.ReadLine());
+            double personCount = double.Parse(input.ReadLine());
 
 
             return Math.Round(totalCost / personCount, 2);
@@ -54,9 +54,13 @@ namespace Lab3
         public static uint CalculatePayerCount(StreamReader input, double totalCost)
         {
             double pay = double.Parse(input.ReadLine());
-            uint result = (uint)(totalCost / pay) + 1;
+            double result = Math.Round(totalCost / pay);
+            if (result < totalCost)
+                result += 1;
 
-            return result;
+
+
+            return (uint)result;
         }
     }
 }
