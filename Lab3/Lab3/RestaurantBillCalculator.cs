@@ -7,48 +7,48 @@ namespace Lab3
     {
         public static double CalculateTotalCost(StreamReader input)
         {
-            double[] price_food = new double[5];
+            double[] priceFood = new double[5];
             int tip;
 
-            double result_sum = 0, result_tax, result_tip, result;
+            double resultSum = 0, resultTax, resultTip, result;
 
             Console.WriteLine("음식");
             Console.Write("1. 첫번째 음식 가격 = ");
-            price_food[0] = double.Parse(Console.ReadLine());
+            priceFood[0] = double.Parse(Console.ReadLine());
 
             Console.Write("2. 두번째 음식 가격 = ");
-            price_food[1] = double.Parse(Console.ReadLine());
+            priceFood[1] = double.Parse(Console.ReadLine());
 
             Console.Write("3. 세번째 음식 가격 = ");
-            price_food[2] = double.Parse(Console.ReadLine());
+            priceFood[2] = double.Parse(Console.ReadLine());
 
             Console.Write("4. 네번째 음식 가격 = ");
-            price_food[3] = double.Parse(Console.ReadLine());
+            priceFood[3] = double.Parse(Console.ReadLine());
 
             Console.Write("5. 다섯번째 음식 가격 = ");
-            price_food[4] = double.Parse(Console.ReadLine());
+            priceFood[4] = double.Parse(Console.ReadLine());
 
             Console.Write("\n팁퍼센트 = ");
             tip = int.Parse(Console.ReadLine());
 
-            foreach (double price in price_food)
+            foreach (double price in priceFood)
             {
-                result_sum += price;
+                resultSum += price;
             }
-            result_tax = result_sum * 0.05;
-            result_tip = (result_sum + result_tax) * tip / 100;
+            resultTax = resultSum * 0.05;
+            resultTip = (resultSum + resultTax) * tip / 100;
 
-            result = result_sum + result_tax + result_tip;
+            result = resultSum + resultTax + resultTip;
             result = Math.Round(result, 2);
             return result;
         }
 
         public static double CalculateIndividualCost(StreamReader input, double totalCost)
         {
-            int person_count = int.Parse(Console.ReadLine());
+            int personCount = int.Parse(Console.ReadLine());
 
 
-            return Math.Round(totalCost / person_count, 2);
+            return Math.Round(totalCost / personCount, 2);
         }
 
         public static uint CalculatePayerCount(StreamReader input, double totalCost)
