@@ -14,22 +14,22 @@ namespace Lab3
 
             Console.WriteLine("음식");
             Console.Write("1. 첫번째 음식 가격 = ");
-            priceFood[0] = double.Parse(Console.ReadLine());
+            priceFood[0] = double.Parse(input.ReadLine());
 
             Console.Write("2. 두번째 음식 가격 = ");
-            priceFood[1] = double.Parse(Console.ReadLine());
+            priceFood[1] = double.Parse(input.ReadLine());
 
             Console.Write("3. 세번째 음식 가격 = ");
-            priceFood[2] = double.Parse(Console.ReadLine());
+            priceFood[2] = double.Parse(input.ReadLine());
 
             Console.Write("4. 네번째 음식 가격 = ");
-            priceFood[3] = double.Parse(Console.ReadLine());
+            priceFood[3] = double.Parse(input.ReadLine());
 
             Console.Write("5. 다섯번째 음식 가격 = ");
-            priceFood[4] = double.Parse(Console.ReadLine());
+            priceFood[4] = double.Parse(input.ReadLine());
 
             Console.Write("\n팁퍼센트 = ");
-            tip = int.Parse(Console.ReadLine());
+            tip = int.Parse(input.ReadLine());
 
             foreach (double price in priceFood)
             {
@@ -45,7 +45,7 @@ namespace Lab3
 
         public static double CalculateIndividualCost(StreamReader input, double totalCost)
         {
-            int personCount = int.Parse(Console.ReadLine());
+            int personCount = int.Parse(input.ReadLine());
 
 
             return Math.Round(totalCost / personCount, 2);
@@ -53,7 +53,7 @@ namespace Lab3
 
         public static uint CalculatePayerCount(StreamReader input, double totalCost)
         {
-            double pay = double.Parse(Console.ReadLine());
+            double pay = double.Parse(input.ReadLine());
             uint result = (uint)(totalCost / pay) + 1;
 
             return result;
