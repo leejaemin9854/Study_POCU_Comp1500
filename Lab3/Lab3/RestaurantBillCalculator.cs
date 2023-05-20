@@ -10,7 +10,10 @@ namespace Lab3
             double[] priceFood = new double[5];
             int tip;
 
-            double resultSum = 0, resultTax, resultTip, result;
+            double resultSum = 0;
+            double resultTax;
+            double resultTip;
+            double result;
 
             Console.WriteLine("음식");
             Console.Write("1. 첫번째 음식 가격 = ");
@@ -40,6 +43,7 @@ namespace Lab3
 
             result = resultSum + resultTax + resultTip;
             result = Math.Round(result, 2);
+
             return result;
         }
 
@@ -54,13 +58,17 @@ namespace Lab3
         public static uint CalculatePayerCount(StreamReader input, double totalCost)
         {
             double pay = double.Parse(input.ReadLine());
-            double result = Math.Round(totalCost / pay);
-            if (result < totalCost)
-                result += 1;
+            uint result = 0;
+
+            while (totalCost > 0)
+            {
+                totalCost -= pay;
+                result++;
+            }
 
 
 
-            return (uint)result;
+            return result;
         }
     }
 }
