@@ -17,7 +17,7 @@ namespace Assignment1
             f2 += Convert.ToString(width);
             f3 += Convert.ToString(width);
 
-            fmat = f1 + "} " + f2 + "} " + f3 + "}";
+            fmat = f1 + "} " + f2 + "} " + f3 + ":X}";
 
 
             int[] nums = new int[5];
@@ -29,7 +29,7 @@ namespace Assignment1
             output.WriteLine(fmat, "oct", "dec", "hex");
             for (int i = 0; i < 5; i++)
             {
-                output.WriteLine(fmat, Convert.ToString(nums[i], 8), nums[i], Convert.ToString(nums[i], 16));
+                output.WriteLine(fmat, Convert.ToString(nums[i], 8), nums[i], nums[i]);
             }
 
 
