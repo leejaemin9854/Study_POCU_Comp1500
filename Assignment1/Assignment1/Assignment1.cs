@@ -7,7 +7,9 @@ namespace Assignment1
     {
         public static void PrintIntegers(StreamReader input, StreamWriter output, int width)
         {
-            string f1 = "{0,", f2 = "{1,", f3 = "{2,";
+            string f1 = "{0,";
+            string f2 = "{1,";
+            string f3 = "{2,";
             string fmat = "";
 
             if (width <= 10)
@@ -38,7 +40,10 @@ namespace Assignment1
         public static void PrintStats(StreamReader input, StreamWriter output)
         {
             float[] nums = new float[5];
-            float min, max, sum, avg;
+            float min;
+            float max;
+            float sum;
+            float avg;
 
             nums[0] = float.Parse(input.ReadLine());
             min = nums[0];
