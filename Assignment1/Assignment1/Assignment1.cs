@@ -7,6 +7,31 @@ namespace Assignment1
     {
         public static void PrintIntegers(StreamReader input, StreamWriter output, int width)
         {
+            string f1 = "{0,", f2 = "{1,", f3 = "{2,";
+            string fmat = "";
+
+            if (width <= 10)
+                width = 10;
+
+            f1 += Convert.ToString(width);
+            f2 += Convert.ToString(width);
+            f3 += Convert.ToString(width);
+
+            fmat = f1 + "} " + f2 + "} " + f3 + "}";
+
+
+            int[] nums = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                nums[i] = int.Parse(input.ReadLine());
+            }
+
+            output.WriteLine(fmat, "oct", "dec", "hex");
+            for (int i = 0; i < 5; i++)
+            {
+                output.WriteLine(fmat, Convert.ToString(nums[i], 8), nums[i], Convert.ToString(nums[i], 16));
+            }
+
 
         }
 
