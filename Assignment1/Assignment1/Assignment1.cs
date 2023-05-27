@@ -5,6 +5,17 @@ namespace Assignment1
 {
     public static class Assignment1
     {
+        static string DeleteSpace(string str)
+        {
+            string result = "";
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] >= '0' && str[i] <= '9')
+                    result += str[i];
+            }
+            return result;
+        }
+
         static string NumberConvert(string str, int convertNum)
         {
             string numberString = "";
@@ -34,7 +45,6 @@ namespace Assignment1
             return result;
         }
 
-
         public static void PrintIntegers(StreamReader input, StreamWriter output, int width)
         {
             string f1 = "{0,";
@@ -50,15 +60,17 @@ namespace Assignment1
             f3 += Convert.ToString(width);
 
             fmat = f1 + "} " + f2 + "} " + f3 + "}";
-            double[] nums = new double[5];
+            string[] nums = new string[5];
             for (int i = 0; i < 5; i++)
             {
-                nums[i] = double.Parse(input.ReadLine());
+                nums[i] = DeleteSpace(input.ReadLine());
             }
+
+
             output.WriteLine(fmat, "oct", "dec", "hex");
             for (int i = 0; i < 5; i++)
             {
-                output.WriteLine(fmat, NumberConvert(Convert.ToString(nums[i]), 8), Convert.ToString(nums[i]), NumberConvert(Convert.ToString(nums[i]), 16));
+                output.WriteLine(fmat, NumberConvert(nums[i], 8), nums[i], NumberConvert(nums[i], 16));
             }
 
         }
