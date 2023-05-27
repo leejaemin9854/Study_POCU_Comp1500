@@ -1,10 +1,35 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace Assignment1
 {
     public static class Assignment1
     {
+        static string NumberConvert(string str, int convertNum)
+        {
+            string result = "";
+            char[] ch = { 'A', 'B', 'C', 'D', 'E', 'F' };
+
+            double num = double.Parse(str);
+            while (true)
+            {
+                double temp = num % convertNum;
+                if (temp < 10)
+                    result += Convert.ToString(temp);
+                else
+                    result += ch[(int)temp - 10];
+                num -= temp;
+                if (num <= 0)
+                    break;
+                num /= convertNum;
+            }
+            result = new string(result.Reverse().ToArray());
+
+            return result;
+        }
+
+
         public static void PrintIntegers(StreamReader input, StreamWriter output, int width)
         {
             string f1 = "{0,";
@@ -19,19 +44,16 @@ namespace Assignment1
             f2 += Convert.ToString(width);
             f3 += Convert.ToString(width);
 
-            fmat = f1 + "} " + f2 + "} " + f3 + ":X}";
-
-
-            double[] nums = new double[5];
+            fmat = f1 + "} " + f2 + "} " + f3 + "}";
+            string[] nums = new string[5];
             for (int i = 0; i < 5; i++)
             {
-                nums[i] = double.Parse(input.ReadLine());
+                nums[i] = input.ReadLine();
             }
-
             output.WriteLine(fmat, "oct", "dec", "hex");
             for (int i = 0; i < 5; i++)
             {
-                output.WriteLine(fmat, Convert.ToString((int)nums[i], 8), (int)nums[i], (int)nums[i]);
+                output.WriteLine(fmat, NumberConvert(nums[i], 8), nums[i], NumberConvert(nums[i], 16));
             }
 
 
