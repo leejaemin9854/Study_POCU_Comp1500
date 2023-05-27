@@ -50,15 +50,15 @@ namespace Assignment1
             f3 += Convert.ToString(width);
 
             fmat = f1 + "} " + f2 + "} " + f3 + "}";
-            string[] nums = new string[5];
+            double[] nums = new double[5];
             for (int i = 0; i < 5; i++)
             {
-                nums[i] = input.ReadLine();
+                nums[i] = double.Parse(input.ReadLine());
             }
             output.WriteLine(fmat, "oct", "dec", "hex");
             for (int i = 0; i < 5; i++)
             {
-                output.WriteLine(fmat, NumberConvert(Convert.ToString(double.Parse(nums[i])), 8), nums[i], NumberConvert(Convert.ToString(double.Parse(nums[i])), 16));
+                output.WriteLine(fmat, NumberConvert(Convert.ToString(nums[i]), 8), nums[i], NumberConvert(Convert.ToString(nums[i]), 16));
             }
 
         }
