@@ -22,10 +22,10 @@ namespace Assignment1
             fmat = f1 + "} " + f2 + "} " + f3 + ":X}";
 
 
-            int[] nums = new int[5];
+            uint[] nums = new uint[5];
             for (int i = 0; i < 5; i++)
             {
-                nums[i] = int.Parse(input.ReadLine());
+                nums[i] = uint.Parse(input.ReadLine());
             }
 
             output.WriteLine(fmat, "oct", "dec", "hex");
