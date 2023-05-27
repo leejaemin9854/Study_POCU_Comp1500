@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 
 namespace Assignment1
 {
@@ -8,7 +7,7 @@ namespace Assignment1
     {
         static string NumberConvert(string str, int convertNum)
         {
-            string result = "";
+            string numberString = "";
             char[] ch = { 'A', 'B', 'C', 'D', 'E', 'F' };
 
             double num = double.Parse(str);
@@ -16,15 +15,21 @@ namespace Assignment1
             {
                 double temp = num % convertNum;
                 if (temp < 10)
-                    result += Convert.ToString(temp);
+                    numberString += Convert.ToString(temp);
                 else
-                    result += ch[(int)temp - 10];
+                    numberString += ch[(int)temp - 10];
                 num -= temp;
                 if (num <= 0)
                     break;
                 num /= convertNum;
             }
-            result = new string(result.Reverse().ToArray());
+
+            string result = "";
+            for (int i = 0; i < numberString.Length; i++)
+            {
+                result += numberString[numberString.Length - i - 1];
+            }
+
 
             return result;
         }
@@ -45,15 +50,15 @@ namespace Assignment1
             f3 += Convert.ToString(width);
 
             fmat = f1 + "} " + f2 + "} " + f3 + "}";
-            string[] nums = new string[5];
+            double[] nums = new double[5];
             for (int i = 0; i < 5; i++)
             {
-                nums[i] = input.ReadLine();
+                nums[i] = double.Parse(input.ReadLine());
             }
             output.WriteLine(fmat, "oct", "dec", "hex");
             for (int i = 0; i < 5; i++)
             {
-                output.WriteLine(fmat, NumberConvert(nums[i], 8), nums[i], NumberConvert(nums[i], 16));
+                output.WriteLine(fmat, NumberConvert(Convert.ToString(nums[i]), 8), nums[i], NumberConvert(Convert.ToString(nums[i]), 16));
             }
 
 
