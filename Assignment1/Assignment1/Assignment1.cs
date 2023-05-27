@@ -39,20 +39,20 @@ namespace Assignment1
 
         public static void PrintStats(StreamReader input, StreamWriter output)
         {
-            float[] nums = new float[5];
-            float min;
-            float max;
-            float sum;
-            float avg;
+            double[] nums = new double[5];
+            double min;
+            double max;
+            double sum;
+            double avg;
 
-            nums[0] = float.Parse(input.ReadLine());
+            nums[0] = double.Parse(input.ReadLine());
             min = nums[0];
             max = nums[0];
             sum = nums[0];
 
             for (int i = 1; i < 5; i++)
             {
-                nums[i] = float.Parse(input.ReadLine());
+                nums[i] = double.Parse(input.ReadLine());
 
                 if (min > nums[i])
                     min = nums[i];
