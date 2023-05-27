@@ -58,7 +58,7 @@ namespace Assignment1
             output.WriteLine(fmat, "oct", "dec", "hex");
             for (int i = 0; i < 5; i++)
             {
-                output.WriteLine(fmat, NumberConvert(Convert.ToString(nums[i]), 8), nums[i], NumberConvert(Convert.ToString(nums[i]), 16));
+                output.WriteLine(fmat, NumberConvert(Convert.ToString(nums[i]), 8), Convert.ToString(nums[i]), NumberConvert(Convert.ToString(nums[i]), 16));
             }
 
         }
