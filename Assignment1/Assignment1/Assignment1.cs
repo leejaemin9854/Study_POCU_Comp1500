@@ -21,10 +21,10 @@ namespace Assignment1
             string numberString = "";
             char[] ch = { 'A', 'B', 'C', 'D', 'E', 'F' };
 
-            double num = double.Parse(str);
+            decimal num = decimal.Parse(str);
             while (true)
             {
-                double temp = num % convertNum;
+                decimal temp = num % convertNum;
                 if (temp < 10)
                     numberString += Convert.ToString(temp);
                 else
