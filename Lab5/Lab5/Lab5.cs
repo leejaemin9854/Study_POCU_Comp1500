@@ -12,6 +12,9 @@ namespace Lab5
             bool result = false;
             int index = 0;
             double rightValue = 0;
+
+            if (usersPerDay.Length != revenuePerDay.Length)
+                return false;
             
 
             for (index = 0; index < usersPerDay.Length; index++)
@@ -113,7 +116,7 @@ namespace Lab5
             double result = 0;
             uint index = 0;
 
-            if (revenuePerDay.Length == 0 || start < 0 || end >= revenuePerDay.Length) 
+            if (revenuePerDay.Length == 0 || start < 0 || end >= revenuePerDay.Length || start > end)  
                 return -1;
 
             for (index = start; index <= end; index++)
