@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -72,43 +73,43 @@ namespace Lab5
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
         {
             int result = 0;
-            int index = 0;
             double rightValue = 0;
-
+            uint i;
 
             if (usersPerDay.Length != revenuePerDay.Length)
                 return -1;
 
 
-            for (index = 0; index < usersPerDay.Length; index++)
+            for (i = 0; i < revenuePerDay.Length; i++)
             {
-                if (usersPerDay[index] <= 10)
+                if (usersPerDay[i] <= 10)
                 {
-                    rightValue = (double)usersPerDay[index] / 2;
-                    result += rightValue != revenuePerDay[index] ? 1 : 0;
+                    rightValue = (double)usersPerDay[i] / 2;
 
                 }
-                else if (usersPerDay[index] <= 100)
+                else if (usersPerDay[i] <= 100)
                 {
-                    rightValue = 16 * (double)usersPerDay[index] / 5 - 27;
-                    result += rightValue != revenuePerDay[index] ? 1 : 0;
+                    rightValue = 16f * (double)usersPerDay[i] / 5 - 27;
 
                 }
-                else if (usersPerDay[index] <= 1000)
+                else if (usersPerDay[i] <= 1000)
                 {
-                    rightValue = (double)usersPerDay[index] * (double)usersPerDay[index] / 4 - 2 * (double)usersPerDay[index] - 2007;
-                    result += rightValue != revenuePerDay[index] ? 1 : 0;
-
+                    rightValue = (double)usersPerDay[i] * (double)usersPerDay[i] / 4 - 2 * (double)usersPerDay[i] - 2007;
+                    
                 }
                 else
                 {
-                    rightValue = 245743 + (double)usersPerDay[index] / 4;
-                    result += rightValue != revenuePerDay[index] ? 1 : 0;
+                    rightValue = 245743 + (double)usersPerDay[i] / 4;
 
                 }
+
+                if (rightValue != revenuePerDay[i])
+                    result++;
             }
 
+
             return result;
+
         }
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
