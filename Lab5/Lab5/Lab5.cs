@@ -10,7 +10,7 @@ namespace Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
-            bool result = false;
+            bool bResult = false;
             int index = 0;
             double rightValue = 0;
 
@@ -24,50 +24,33 @@ namespace Lab5
                 {
                     rightValue = (double)usersPerDay[index] / 2;
 
-                    if(rightValue != revenuePerDay[index])
-                    {
-                        revenuePerDay[index] = rightValue;
-                        result = true;
-                    }
-
                 }
                 else if (usersPerDay[index] <= 100)
                 {
                     rightValue = 16 * (double)usersPerDay[index] / 5 - 27;
 
-                    if (rightValue != revenuePerDay[index])
-                    {
-                        revenuePerDay[index] = rightValue;
-                        result = true;
-                    }
-
                 }
                 else if (usersPerDay[index] <= 1000)
                 {
                     rightValue = (double)usersPerDay[index] * (double)usersPerDay[index] / 4 - 2 * (double)usersPerDay[index] - 2007;
-                    
-                    if (rightValue != revenuePerDay[index])
-                    {
-                        revenuePerDay[index] = rightValue;
-                        result = true;
-                    }
 
                 }
                 else
                 {
                     rightValue = 245743 + (double)usersPerDay[index] / 4;
 
-                    if (rightValue != revenuePerDay[index])
-                    {
-                        revenuePerDay[index] = rightValue;
-                        result = true;
-                    }
+                }
 
+
+                if (rightValue != revenuePerDay[index])
+                {
+                    revenuePerDay[index] = rightValue;
+                    bResult = true;
                 }
             }
             
 
-            return result;
+            return bResult;
         }
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
@@ -76,7 +59,7 @@ namespace Lab5
             double rightValue = 0;
             uint i;
 
-            if (usersPerDay.Length != revenuePerDay.Length)
+            if (usersPerDay.Length != revenuePerDay.Length || usersPerDay.Length == 0) 
                 return -1;
 
 
