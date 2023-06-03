@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lab5
 {
@@ -10,3 +11,4 @@ namespace Lab5
         }
     }
 }
+
