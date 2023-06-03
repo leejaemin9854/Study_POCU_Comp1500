@@ -59,8 +59,11 @@ namespace Lab5
             decimal rightValue = 0;
             int i;
 
-            if (usersPerDay.Length != revenuePerDay.Length || usersPerDay.Length == 0) 
+            if (usersPerDay.Length != revenuePerDay.Length) 
                 return -1;
+
+            if (usersPerDay.Length == 0)
+                return result;
 
 
             for (i = 0; i < revenuePerDay.Length; i++)
