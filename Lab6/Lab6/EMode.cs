@@ -16,6 +16,7 @@ namespace Lab6
 
         public static int[,] Rotate90Degrees(int[,] data)
         {
+
             int[,] ary = new int[data.GetLength(1), data.GetLength(0)];
             int i;
             int j;
@@ -36,6 +37,8 @@ namespace Lab6
 
         public static void TransformArray(int[,] data, EMode emod)
         {
+            if (data.Length == 0)
+                return;
             int i;
             int j;
 
