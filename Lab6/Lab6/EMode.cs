@@ -48,7 +48,7 @@ namespace Lab6
 
                 for (i = 0; i < data.GetLength(0); i++)
                 {
-                    for (j = 0; j < data.GetLength(1) / 2; j++) 
+                    for (j = 0; j < data.GetLength(1) / 2; j++)
                     {
                         int value = data[i, j];
                         data[i, j] = data[i, data.GetLength(1) - j - 1];
@@ -60,7 +60,7 @@ namespace Lab6
             else if (emod == EMode.VerticalMirror)
             {
 
-                for (i = 0; i < data.GetLength(0) / 2; i++) 
+                for (i = 0; i < data.GetLength(0) / 2; i++)
                 {
                     for (j = 0; j < data.GetLength(1); j++)
                     {
@@ -71,7 +71,7 @@ namespace Lab6
                 }
 
             }
-            else if(emod==EMode.DiagonalShift)
+            else if (emod == EMode.DiagonalShift) 
             {
                 int[] row = new int[data.GetLength(0) - 1];
                 int[] col = new int[data.GetLength(1) - 1];
