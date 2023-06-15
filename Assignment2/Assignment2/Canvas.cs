@@ -88,6 +88,12 @@ namespace Assignment2
         public static char[,] Draw(uint width, uint height, EShape shape)
         {
             char[,] canvas;
+            if (width == 0 || height == 0)
+            {
+                canvas = new char[0, 0];
+                return canvas;
+            } 
+                
 
             if (shape == EShape.Rectangle)
             {
