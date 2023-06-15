@@ -20,7 +20,8 @@ namespace Assignment2
         {
             int[] size = { canvas.GetLength(0), canvas.GetLength(1) };
             
-            int i, j;
+            int i;
+            int j;
 
             for (i = 0; i < size[0]; i++)
             {
@@ -31,14 +32,16 @@ namespace Assignment2
                 Console.WriteLine();
             }
         }
-        private static int ResetCanvas(char[,] canvas)
+        private static int Reset(char[,] canvas)
         {
-            int width = canvas.GetLength(1), height = canvas.GetLength(0);
+            int width = canvas.GetLength(1);
+            int height = canvas.GetLength(0);
             if (width <= 0 || height <= 0)
                 return 0;
 
 
-            int i, j;
+            int i;
+            int j;
 
             for (i = 0; i < width; i++)
             {
@@ -99,7 +102,7 @@ namespace Assignment2
             {
                 canvas = new char[height + 4, width + 4];
 
-                ResetCanvas(canvas);
+                Reset(canvas);
 
                 for (int i = 0; i < width; i++)
                 {
@@ -111,14 +114,14 @@ namespace Assignment2
             }
             else if (shape == EShape.IsoscelesRightTriangle)
             {
-                if(width != height)
+                if (width != height) 
                 {
                     canvas = new char[0, 0];
                 }
                 else
                 {
                     canvas = new char[height + 4, width + 4];
-                    ResetCanvas(canvas);
+                    Reset(canvas);
 
                     for (int i = 0; i < height; i++)
                     {
@@ -138,7 +141,7 @@ namespace Assignment2
                 else
                 {
                     canvas = new char[height + 4, width + 4];
-                    ResetCanvas(canvas);
+                    Reset(canvas);
 
                     for (int i = 0; i < height; i++)
                     {
@@ -159,7 +162,7 @@ namespace Assignment2
                 else
                 {
                     canvas = new char[height + 4, width + 4];
-                    ResetCanvas(canvas);
+                    Reset(canvas);
 
                     uint rad = width / 2;
 
