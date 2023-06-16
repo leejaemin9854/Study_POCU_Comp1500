@@ -32,39 +32,6 @@ namespace Assignment2
                 Console.WriteLine();
             }
         }
-        private static int Reset(char[,] canvas)
-        {
-            int width = canvas.GetLength(1);
-            int height = canvas.GetLength(0);
-            if (width <= 0 || height <= 0)
-                return 0;
-
-
-            int i;
-            int j;
-
-            for (i = 0; i < width; i++)
-            {
-                for (j = 0; j < height; j++)
-                {
-                    canvas[j, i] = ' ';
-                }
-            }
-
-
-            for (i = 0; i < width; i++)
-            {
-                canvas[0, i] = '-';
-                canvas[height - 1, i] = '-';
-            }
-            for (j = 1; j < height - 1; j++)
-            {
-                canvas[j, 0] = '|';
-                canvas[j, width - 1] = '|';
-            }
-
-            return 1;
-        }
 
         public static bool Compare(char[,] ch1, char[,] ch2)
         {
@@ -102,7 +69,27 @@ namespace Assignment2
             {
                 canvas = new char[height + 4, width + 4];
 
-                Reset(canvas);
+
+                for (int i = 0; i < canvas.GetLength(1); i++)
+                {
+                    for (int j = 0; j < canvas.GetLength(0); j++)
+                    {
+                        canvas[j, i] = ' ';
+                    }
+                }
+
+
+                for (int i = 0; i < canvas.GetLength(1); i++)
+                {
+                    canvas[0, i] = '-';
+                    canvas[canvas.GetLength(0) - 1, i] = '-';
+                }
+                for (int j = 1; j < canvas.GetLength(0) - 1; j++)
+                {
+                    canvas[j, 0] = '|';
+                    canvas[j, canvas.GetLength(1) - 1] = '|';
+                }
+
 
                 for (int i = 0; i < width; i++)
                 {
@@ -121,7 +108,27 @@ namespace Assignment2
                 else
                 {
                     canvas = new char[height + 4, width + 4];
-                    Reset(canvas);
+
+                    for (int i = 0; i < canvas.GetLength(1); i++)
+                    {
+                        for (int j = 0; j < canvas.GetLength(0); j++)
+                        {
+                            canvas[j, i] = ' ';
+                        }
+                    }
+
+
+                    for (int i = 0; i < canvas.GetLength(1); i++)
+                    {
+                        canvas[0, i] = '-';
+                        canvas[canvas.GetLength(0) - 1, i] = '-';
+                    }
+                    for (int j = 1; j < canvas.GetLength(0) - 1; j++)
+                    {
+                        canvas[j, 0] = '|';
+                        canvas[j, canvas.GetLength(1) - 1] = '|';
+                    }
+
 
                     for (int i = 0; i < height; i++)
                     {
@@ -141,7 +148,27 @@ namespace Assignment2
                 else
                 {
                     canvas = new char[height + 4, width + 4];
-                    Reset(canvas);
+
+                    for (int i = 0; i < canvas.GetLength(1); i++)
+                    {
+                        for (int j = 0; j < canvas.GetLength(0); j++)
+                        {
+                            canvas[j, i] = ' ';
+                        }
+                    }
+
+
+                    for (int i = 0; i < canvas.GetLength(1); i++)
+                    {
+                        canvas[0, i] = '-';
+                        canvas[canvas.GetLength(0) - 1, i] = '-';
+                    }
+                    for (int j = 1; j < canvas.GetLength(0) - 1; j++)
+                    {
+                        canvas[j, 0] = '|';
+                        canvas[j, canvas.GetLength(1) - 1] = '|';
+                    }
+
 
                     for (int i = 0; i < height; i++)
                     {
@@ -162,7 +189,27 @@ namespace Assignment2
                 else
                 {
                     canvas = new char[height + 4, width + 4];
-                    Reset(canvas);
+
+                    for (int i = 0; i < canvas.GetLength(1); i++)
+                    {
+                        for (int j = 0; j < canvas.GetLength(0); j++)
+                        {
+                            canvas[j, i] = ' ';
+                        }
+                    }
+
+
+                    for (int i = 0; i < canvas.GetLength(1); i++)
+                    {
+                        canvas[0, i] = '-';
+                        canvas[canvas.GetLength(0) - 1, i] = '-';
+                    }
+                    for (int j = 1; j < canvas.GetLength(0) - 1; j++)
+                    {
+                        canvas[j, 0] = '|';
+                        canvas[j, canvas.GetLength(1) - 1] = '|';
+                    }
+
 
                     uint rad = width / 2;
 
