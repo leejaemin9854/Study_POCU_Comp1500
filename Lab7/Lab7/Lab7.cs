@@ -23,7 +23,12 @@ namespace Lab7
                 return array[array[index] + index] != array[index] ? ReculsiveFunc(array, array[index] + index) : false;
 
 
-            return ReculsiveFunc(array, index - array[index]) || ReculsiveFunc(array, array[index] + index);
+            bool left = array[index - array[index]] != array[index] ? ReculsiveFunc(array, index - array[index]) : false;
+            bool right = array[array[index] + index] != array[index] ? ReculsiveFunc(array, array[index] + index) : false;
+
+
+            return left || right;
+            //return ReculsiveFunc(array, index - array[index]) || ReculsiveFunc(array, array[index] + index);
         }
 
         public static bool PlayGame(uint[] array)
