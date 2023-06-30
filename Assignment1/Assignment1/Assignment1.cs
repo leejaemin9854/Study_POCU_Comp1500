@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Assignment1
 {
-    public static class Assignment1
+    internal static class Assignment1
     {
         static string DeleteSpace(string str)
         {
