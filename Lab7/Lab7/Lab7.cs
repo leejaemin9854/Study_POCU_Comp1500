@@ -40,7 +40,7 @@ namespace Lab7
         {
             if (array.Length <= 1)
                 return false;
-            if (array[0] >= array.Length)
+            if (array[0] == 0 || array[0] >= array.Length) 
                 return false;
 
             uint[] ary = new uint[array.Length - 1];
