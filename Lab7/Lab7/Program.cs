@@ -41,6 +41,8 @@ namespace Lab7
             bPass = Lab7.PlayGame(array);
 
             Debug.Assert(bPass);
+
+
         }
     }
 }

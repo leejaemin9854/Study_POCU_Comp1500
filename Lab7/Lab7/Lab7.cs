@@ -8,27 +8,32 @@ namespace Lab7
     public static class Lab7
     {
 
-        public static bool ReculsiveFunc(uint[] array, uint index)
+        public static bool Func(uint[] array, uint index)
         {
-            if (array[index] == 0)
+            if (index == array.Length - 1)
                 return true;
-
-            if (array[index] + index >= array.Length && index < array[index])
+            if (array[index] == 0)
                 return false;
 
-            if (array[index] + index >= array.Length)
-                return array[index - array[index]] != array[index] ? ReculsiveFunc(array, index - array[index]) : false;
+            uint value = array[index];
+            uint[] ary=new uint[array.Length];
+            for (uint i = 0; i < array.Length; i++)
+            {
+                ary[i] = array[i];
+            }
+            ary[index] = 0;
 
-            if (index < array[index])
-                return array[array[index] + index] != array[index] ? ReculsiveFunc(array, array[index] + index) : false;
+            if (array.Length <= value + index && value > index)
+                return false;
+
+            if (array.Length <= value + index)
+                return Func(ary, index - value);
+            if (value > index)
+                return Func(ary, index + value);
+
+            return Func(ary, index - value) || Func(ary, index + value);
 
 
-            bool left = array[index - array[index]] != array[index] ? ReculsiveFunc(array, index - array[index]) : false;
-            bool right = array[array[index] + index] != array[index] ? ReculsiveFunc(array, array[index] + index) : false;
-
-
-            return left || right;
-            //return ReculsiveFunc(array, index - array[index]) || ReculsiveFunc(array, array[index] + index);
         }
 
         public static bool PlayGame(uint[] array)
@@ -43,7 +48,7 @@ namespace Lab7
             {
                 ary[i] = array[i + 1];
             }
-            return ReculsiveFunc(ary, array[0] - 1);
+            return Func(ary, array[0] - 1);
         }
     }
 }
