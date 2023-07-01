@@ -16,7 +16,7 @@ namespace Lab7
                 return false;
 
             uint value = array[index];
-            uint[] ary=new uint[array.Length];
+            uint[] ary = new uint[array.Length];
             for (uint i = 0; i < array.Length; i++)
             {
                 ary[i] = array[i];
