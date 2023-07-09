@@ -8,7 +8,17 @@ namespace Lab8
 {
     internal class Lab8
     {
-        
+
+        public static bool isEmty(string str)
+        {
+            foreach (char ch in str)
+            {
+                if (ch != ' ')
+                    return false;
+            }
+
+            return true;
+        }
 
 
         public static string ChangeToAlpha(uint num)
@@ -31,15 +41,16 @@ namespace Lab8
 
         public static string PrettifyListOrNull(string s)
         {
-            if (s == "")
+            if (s == "" || isEmty(s))
                 return null;
+
 
             StringBuilder result = new StringBuilder(1024);
 
             string addString;
             string nLine = "\r\n";
 
-            char[] delims_lv = { '|', '_', '/' };
+            char[] delimsLv = { '|', '_', '/' };
             uint[] index = { 0, 0, 0 };
 
             addString = $"{++index[0]}) ";
@@ -47,7 +58,7 @@ namespace Lab8
 
             foreach (char c in s)
             {
-                if (c == delims_lv[0])
+                if (c == delimsLv[0])
                 {
 
                     addString = $"{nLine}{index[0] + 1}) ";
@@ -58,7 +69,7 @@ namespace Lab8
                     index[1] = 0;
                     index[2] = 0;
                 }
-                else if (c == delims_lv[1])
+                else if (c == delimsLv[1])
                 {
                     index[2] = 1;
 
@@ -68,7 +79,7 @@ namespace Lab8
 
                     index[1]++;
                 }
-                else if (index[2] == 1 && c == delims_lv[2]) 
+                else if (index[2] == 1 && c == delimsLv[2]) 
                 {
                     addString = $"{nLine}        - ";
 
@@ -78,6 +89,7 @@ namespace Lab8
                 {
                     result.Append(c);
                 }
+
 
             }
             result.Append(nLine);
