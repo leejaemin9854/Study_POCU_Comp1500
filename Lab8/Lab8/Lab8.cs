@@ -8,12 +8,11 @@ namespace Lab8
 {
     internal class Lab8
     {
-
         public static bool Emty(string str)
         {
             foreach (char ch in str)
             {
-                if (ch != ' ')
+                if (ch != 9 && ch != 10 && ch != 11 && ch != 12 && ch != 13 && ch != 32)  
                     return false;
             }
             return true;
