@@ -9,14 +9,13 @@ namespace Lab8
     internal class Lab8
     {
 
-        public static bool isEmty(string str)
+        public static bool Emty(string str)
         {
             foreach (char ch in str)
             {
                 if (ch != ' ')
                     return false;
             }
-
             return true;
         }
 
@@ -41,7 +40,7 @@ namespace Lab8
 
         public static string PrettifyListOrNull(string s)
         {
-            if (s == "" || isEmty(s))
+            if (s == null || s == "" || Emty(s)) 
                 return null;
 
 
