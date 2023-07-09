@@ -9,6 +9,8 @@ namespace Lab8
     internal class Lab8
     {
         
+
+
         public static string ChangeToAlpha(uint num)
         {
             StringBuilder s = new StringBuilder(128);
@@ -32,53 +34,53 @@ namespace Lab8
             if (s == "")
                 return null;
 
-            string result = "";
+            StringBuilder result = new StringBuilder(1024);
 
             string addString;
-            string nLine = "\n";
+            string nLine = "\r\n";
 
-            char[] delimsLv = { '|', '_', '/' };
+            char[] delims_lv = { '|', '_', '/' };
             uint[] index = { 0, 0, 0 };
 
             addString = $"{++index[0]}) ";
-            result += addString;
+            result.Append(addString);
 
             foreach (char c in s)
             {
-                if (c == delimsLv[0])
+                if (c == delims_lv[0])
                 {
 
                     addString = $"{nLine}{index[0] + 1}) ";
 
-                    result += addString;
+                    result.Append(addString);
 
                     index[0]++;
                     index[1] = 0;
                     index[2] = 0;
                 }
-                else if (c == delimsLv[1])
+                else if (c == delims_lv[1])
                 {
                     index[2] = 1;
 
                     addString = $"{nLine}    {ChangeToAlpha(index[1])}) ";
 
-                    result += addString;
+                    result.Append(addString);
 
                     index[1]++;
                 }
-                else if (index[2] == 1 && c == delimsLv[2]) 
+                else if (index[2] == 1 && c == delims_lv[2]) 
                 {
                     addString = $"{nLine}        - ";
 
-                    result += addString;
+                    result.Append(addString);
                 }
                 else
                 {
-                    result += addString;
+                    result.Append(c);
                 }
 
             }
-            result += addString;
+            result.Append(nLine);
 
             return result.ToString();
         }
