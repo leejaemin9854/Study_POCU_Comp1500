@@ -60,7 +60,7 @@ namespace Lab8
             string result = "";
 
             string addString;
-            string nLine = "\r\n";
+            string nLine = "\n";
 
             char[] delims_lv = { '|', '_', '/' };
             uint[] index = { 0, 0, 0 };
