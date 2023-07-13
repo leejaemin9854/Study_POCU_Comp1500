@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lab8
 {
@@ -6,7 +7,9 @@ namespace Lab8
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Console.Write(Lab8.PrettifyListOrNull("\r"));
+
         }
     }
 }
