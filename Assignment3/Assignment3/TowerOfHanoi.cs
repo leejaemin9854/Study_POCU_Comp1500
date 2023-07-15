@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,7 +33,7 @@ namespace Assignment3
                 return result;
 
             List<int>[] line;
-            int num=GetNumberOfSteps(numDiscs);
+            int num = GetNumberOfSteps(numDiscs);
             for (int i = 0; i < num + 1; i++)
             {
                 line = new List<int>[3];
@@ -52,7 +51,7 @@ namespace Assignment3
             }
 
             List<int[]> moveInfo = new List<int[]>(num);
-            RecursiveHanoi(moveInfo, numDiscs, 1, 3);
+            ReturnHanoiMoveInfo(moveInfo, numDiscs, 1, 3);
             
 
 
@@ -60,7 +59,7 @@ namespace Assignment3
             {
                 CopyListAry(result[i + 1], result[i]);
 
-                move(result[i + 1], moveInfo[i][0], moveInfo[i][1]);
+                Move(result[i + 1], moveInfo[i][0], moveInfo[i][1]);
             }
 
 
@@ -79,7 +78,7 @@ namespace Assignment3
             }
         }
 
-        public static void move(List<int>[] list, int from, int to)
+        public static void Move(List<int>[] list, int from, int to)
         {
             from--;
             to--;
@@ -90,7 +89,7 @@ namespace Assignment3
 
         }
 
-        public static void RecursiveHanoi(List<int[]> sb, int disks, int fromPeg, int toPeg)
+        public static void ReturnHanoiMoveInfo(List<int[]> sb, int disks, int fromPeg, int toPeg)
         {
             if (disks == 0)
                 return;
@@ -99,13 +98,13 @@ namespace Assignment3
             int sparePeg = 6 - fromPeg - toPeg;
 
             //재귀 조건
-            RecursiveHanoi(sb, disks - 1, fromPeg, sparePeg);
+            ReturnHanoiMoveInfo(sb, disks - 1, fromPeg, sparePeg);
 
             int[] info = new int[] { fromPeg, toPeg };
             sb.Add(info);
 
 
-            RecursiveHanoi(sb, disks - 1, sparePeg, toPeg);
+            ReturnHanoiMoveInfo(sb, disks - 1, sparePeg, toPeg);
         }
     }
 }
