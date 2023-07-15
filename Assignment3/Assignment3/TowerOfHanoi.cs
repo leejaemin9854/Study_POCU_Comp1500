@@ -7,12 +7,12 @@ namespace Assignment3
 {
     internal class TowerOfHanoi
     {
-        public static int Pow(int num, int power)
+        public static int DoPow(int num, int power)
         {
             int result = 1;
             for (int i = 0; i < power; i++)
             {
-                result*= num;
+                result *= num;
             }
 
             return result;
@@ -23,7 +23,7 @@ namespace Assignment3
             if (numDiscs < 0)
                 return -1;
 
-            return Pow(2, numDiscs) - 1;
+            return DoPow(2, numDiscs) - 1;
         }
 
         public static List<List<int>[]> SolveTowerOfHanoi(int numDiscs)
