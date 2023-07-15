@@ -8,21 +8,30 @@ namespace Assignment3
 {
     internal class TowerOfHanoi
     {
+        public static int Pow(int num, int power)
+        {
+            int result = 1;
+            for (int i = 0; i < power; i++)
+            {
+                result*= num;
+            }
+
+            return result;
+        }
+
         public static int GetNumberOfSteps(int numDiscs)
         {
-            if (numDiscs <= 0)
+            if (numDiscs < 0)
                 return -1;
 
-            if (numDiscs == 1)
-                return 1;
-            else
-                return GetNumberOfSteps(numDiscs - 1) * 2 + 1;
+            return Pow(2, numDiscs) - 1;
         }
 
         public static List<List<int>[]> SolveTowerOfHanoi(int numDiscs)
         {
             List<List<int>[]> result = new List<List<int>[]>();
-            
+            if (numDiscs < 1)
+                return result;
 
             List<int>[] line;
             int num=GetNumberOfSteps(numDiscs);
@@ -44,17 +53,7 @@ namespace Assignment3
 
             List<int[]> moveInfo = new List<int[]>(num);
             RecursiveHanoi(moveInfo, numDiscs, 1, 3);
-            /*
-            for (int i = 0; i < moveInfo.Count; i++)
-            {
-                Console.Write("{ ");
-                for (int j = 0; j < moveInfo[i].Length; j++)
-                {
-                    Console.Write($" {moveInfo[i][j]} ");
-                }
-                Console.WriteLine(" }");
-            }
-            */
+            
 
 
             for (int i = 0; i < moveInfo.Count; i++)
@@ -65,17 +64,6 @@ namespace Assignment3
             }
 
 
-            /*
-            CopyListAry(result[1], result[0]);
-
-
-            move(result[1], 1, 3);
-            move(result[1], 1, 3);
-            move(result[1], 1, 3);
-
-            move(result[0], 1, 3);
-            move(result[0], 1, 3);
-            */
 
             return result;
         }
