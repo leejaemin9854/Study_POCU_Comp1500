@@ -27,7 +27,8 @@ namespace Lab10
 
         public double GetArea()
         {
-            return Width * Height / 2;
+            double result = Math.Round((double)(Width * Height / 2), 3);
+            return result;
         }
     }
 }
