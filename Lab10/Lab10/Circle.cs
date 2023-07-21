@@ -11,8 +11,6 @@ namespace Lab10
         public uint Radius { get; private set; }
         public uint Diameter { get; private set; }
 
-        private double PI = Math.Truncate(Math.PI * 1000) * 0.001;
-
         public Circle(uint radius)
         {
             this.Radius = radius;
