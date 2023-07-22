@@ -27,7 +27,7 @@ namespace Lab10
 
         public double GetArea()
         {
-            return (double)(Width * Height / 2);
+            return (double)(Width * Height) / 2;
         }
     }
 }
