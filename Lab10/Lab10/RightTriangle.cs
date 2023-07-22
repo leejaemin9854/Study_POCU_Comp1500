@@ -27,9 +27,8 @@ namespace Lab10
 
         public double GetArea()
         {
-            //double result = Math.Round(((double)(Width * Height / 2)), 3);
-            double result = Math.Truncate((double)(Width * Height / 2 * 10000)) * 0.0001;
-            return result;
+            double result = Math.Round(((double)(Width * Height / 2)), 3);
+            return (Width * Height / 2);
         }
     }
 }
