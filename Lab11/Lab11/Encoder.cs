@@ -11,7 +11,7 @@ namespace Lab11
     {
         public static bool TryEncode(Stream input, Stream output)
         {
-            if(input == null)
+            if (input == null) 
             {
                 return false;
             }
@@ -22,7 +22,7 @@ namespace Lab11
             }
 
 
-            byte[] bytes=new byte[input.Length];
+            byte[] bytes = new byte[input.Length];
 
             input.Read(bytes, 0, bytes.Length);
 
