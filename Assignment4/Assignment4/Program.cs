@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using static Assignment4.Monster_Battle_Royal;
 
 namespace Assignment4
 {
@@ -13,10 +12,10 @@ namespace Assignment4
     {
         static void Main(string[] args)
         {
-            Monster monster1 = new Monster("Slime", EElementType.Fire, 120, 7, 2);
+            Monster monster1 = new Monster("Slime", Monster_Battle_Royal.EElementType.Fire, 120, 7, 2);
 
             Debug.Assert(monster1.Name == "Slime");
-            Debug.Assert(monster1.ElementType == EElementType.Fire);
+            Debug.Assert(monster1.ElementType == Monster_Battle_Royal.EElementType.Fire);
             Debug.Assert(monster1.Health == 120);
             Debug.Assert(monster1.AttackStat == 7);
             Debug.Assert(monster1.DefenseStat == 2);
@@ -26,8 +25,8 @@ namespace Assignment4
             monster1.TakeDamage(110);
             Debug.Assert(monster1.Health == 0);
 
-            monster1 = new Monster("Slime", EElementType.Fire, 100, 7, 2);
-            Monster monster2 = new Monster("Goblin", EElementType.Earth, 70, 4, 3);
+            monster1 = new Monster("Slime", Monster_Battle_Royal.EElementType.Fire, 100, 7, 2);
+            Monster monster2 = new Monster("Goblin", Monster_Battle_Royal.EElementType.Earth, 70, 4, 3);
 
             monster1.Attack(monster2);
             Debug.Assert(monster2.Health == 68);
@@ -35,7 +34,7 @@ namespace Assignment4
             monster2.Attack(monster1);
             Debug.Assert(monster1.Health == 97);
 
-            Monster monster3 = new Monster("Ghost", EElementType.Water, 20, 1, 1);
+            Monster monster3 = new Monster("Ghost", Monster_Battle_Royal.EElementType.Water, 20, 1, 1);
             monster3.Attack(monster1);
 
             Debug.Assert(monster1.Health == 96);
@@ -62,8 +61,4 @@ namespace Assignment4
         }
     }
 
-
-
-
-    
 }
