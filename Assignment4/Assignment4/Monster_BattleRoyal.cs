@@ -52,14 +52,14 @@ namespace Assignment4
         public void Attack(Monster otherMonster)
         {
             int amount = AttackStat - otherMonster.DefenseStat;
-            amount = (int)CalculationConstancy((double)amount, ElementType, otherMonster.ElementType);
+            amount = (int)CalculateConstancy((double)amount, ElementType, otherMonster.ElementType);
             amount = amount < 1 ? 1 : amount;
 
 
             otherMonster.TakeDamage(amount);
         }
 
-        static double CalculationConstancy(double deal, EElementType atkElement, EElementType shtElement)
+        static double CalculateConstancy(double deal, EElementType atkElement, EElementType shtElement)
         {
             double result = deal;
 
