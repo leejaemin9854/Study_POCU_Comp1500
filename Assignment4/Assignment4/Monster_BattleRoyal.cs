@@ -205,16 +205,12 @@ namespace Assignment4
 
 
             List<int> removeList = new List<int>(mList.Count);
-
+            
 
             for (int i = 0; i < mList.Count; i++)
             {
                 if (mList[i].Health <= 0)
                 {
-                    if (MonsterCount > 0)
-                    {
-                        MonsterCount--;
-                    }
                     removeList.Add(i);
                     continue;
                 }
@@ -225,10 +221,6 @@ namespace Assignment4
 
             if (mList[0].Health <= 0)
             {
-                if (MonsterCount > 0)
-                {
-                    MonsterCount--;
-                }
                 removeList.Add(0);
             }
 
@@ -237,7 +229,10 @@ namespace Assignment4
                 mList.RemoveAt(removeList[i]);
             }
 
-            
+            MonsterCount = (uint)mList.Count;
+            //MonsterCount = MonsterCount < (uint)removeList.Count ? 0 : MonsterCount - (uint)removeList.Count;
+
+
         }
 
 
