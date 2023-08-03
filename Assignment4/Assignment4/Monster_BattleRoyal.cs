@@ -20,7 +20,7 @@ namespace Assignment4
     {
         public string Name { get; private set; }
         public EElementType ElementType { get; private set; }
-        public int Health { get; set; }
+        public int Health { get; private set; }
         public int AttackStat { get; private set; }
         public int DefenseStat { get; private set; }
 
@@ -224,6 +224,7 @@ namespace Assignment4
             }
 
             MonsterCount -= (uint)removeList.Count;
+            Turn++;
         }
 
 
