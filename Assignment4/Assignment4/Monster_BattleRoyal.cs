@@ -7,33 +7,26 @@ using System.Threading.Tasks;
 
 namespace Assignment4
 {
-    public class Monster_Battle_Royal
+    public enum EElementType
     {
-        public enum EElementType
-        {
-            Fire,
-            Water,
-            Wind,
-            Earth
-        };
-
-
-
-
-    }
+        Fire,
+        Water,
+        Wind,
+        Earth
+    };
 
 
     public class Monster
     {
         public string Name { get; private set; }
-        public Monster_Battle_Royal.EElementType ElementType { get; private set; }
+        public EElementType ElementType { get; private set; }
         public int Health { get; set; }
         public int AttackStat { get; private set; }
         public int DefenseStat { get; private set; }
 
 
 
-        public Monster(string name, Monster_Battle_Royal.EElementType elementType, int health, int attack, int defense)
+        public Monster(string name, EElementType elementType, int health, int attack, int defense)
         {
             Name = name;
             ElementType = elementType;
@@ -66,39 +59,39 @@ namespace Assignment4
             otherMonster.TakeDamage(amount);
         }
 
-        static double ConstancyCalculation(double deal, Monster_Battle_Royal.EElementType atkElement, Monster_Battle_Royal.EElementType shtElement)
+        static double ConstancyCalculation(double deal, EElementType atkElement, EElementType shtElement)
         {
             double result = deal;
 
-            if (atkElement == Monster_Battle_Royal.EElementType.Fire)
+            if (atkElement == EElementType.Fire)
             {
-                if (shtElement == Monster_Battle_Royal.EElementType.Wind)
+                if (shtElement == EElementType.Wind)
                 {
                     result *= 1.5f;
                 }
-                else if (shtElement != Monster_Battle_Royal.EElementType.Fire)
+                else if (shtElement != EElementType.Fire)
                 {
                     result *= 0.5f;
                 }
             }
-            else if (atkElement == Monster_Battle_Royal.EElementType.Water)
+            else if (atkElement == EElementType.Water)
             {
-                if (shtElement == Monster_Battle_Royal.EElementType.Fire)
+                if (shtElement == EElementType.Fire)
                 {
                     result *= 1.5f;
                 }
-                else if (shtElement == Monster_Battle_Royal.EElementType.Wind)
+                else if (shtElement == EElementType.Wind)
                 {
                     result *= 0.5f;
                 }
             }
-            else if (atkElement == Monster_Battle_Royal.EElementType.Wind)
+            else if (atkElement == EElementType.Wind)
             {
-                if (shtElement == Monster_Battle_Royal.EElementType.Fire)
+                if (shtElement == EElementType.Fire)
                 {
                     result *= 0.5f;
                 }
-                else if (shtElement == Monster_Battle_Royal.EElementType.Wind)
+                else if (shtElement == EElementType.Wind)
                 {
                     result *= 1.5f;
                 }
@@ -106,11 +99,11 @@ namespace Assignment4
             }
             else
             {
-                if (shtElement == Monster_Battle_Royal.EElementType.Fire)
+                if (shtElement == EElementType.Fire)
                 {
                     result *= 1.5f;
                 }
-                else if (shtElement == Monster_Battle_Royal.EElementType.Wind)
+                else if (shtElement == EElementType.Wind)
                 {
                     result *= 0.5f;
                 }
@@ -169,19 +162,19 @@ namespace Assignment4
 
                 //New Monster--
                 string name = data[0];
-                Monster_Battle_Royal.EElementType elementType = Monster_Battle_Royal.EElementType.Fire;
+                EElementType elementType = EElementType.Fire;
 
                 if (data[1] == "Water")
                 {
-                    elementType = Monster_Battle_Royal.EElementType.Water;
+                    elementType = EElementType.Water;
                 }
                 else if (data[1] == "Wind")
                 {
-                    elementType = Monster_Battle_Royal.EElementType.Wind;
+                    elementType = EElementType.Wind;
                 }
                 else if (data[1] == "Earth")
                 {
-                    elementType = Monster_Battle_Royal.EElementType.Earth;
+                    elementType = EElementType.Earth;
                 }
 
                 int health = int.Parse(data[2]);
