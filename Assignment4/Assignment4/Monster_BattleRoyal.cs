@@ -91,7 +91,7 @@ namespace Assignment4
                 {
                     result *= 0.5f;
                 }
-                else if (shtElement == EElementType.Wind)
+                else if (shtElement != EElementType.Wind)
                 {
                     result *= 1.5f;
                 }
@@ -128,7 +128,7 @@ namespace Assignment4
         public uint Turn { get; private set; }
         public uint MonsterCount { get; private set; }
 
-        private List<Monster> monsterList;
+        public List<Monster> monsterList;
 
         public Arena(string arenaName, uint capacity)
         {
@@ -217,6 +217,12 @@ namespace Assignment4
                 monsterList[i].Attack(monsterList[(int)((i + 1) % monsterList.Count)]);
 
             }
+            Turn += 1;
+
+            if (monsterList[0].Health <= 0)
+            {
+                removeList.Add(0);
+            }
 
             for (int i = 0; i < removeList.Count; i++)
             {
@@ -224,7 +230,7 @@ namespace Assignment4
             }
 
             MonsterCount -= (uint)removeList.Count;
-            Turn++;
+            
         }
 
 

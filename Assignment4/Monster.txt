@@ -1,0 +1,4 @@
+MyMonster1,Water,99,4,0
+MyMonster2,Fire,5,0,1
+MyMonster3,Wind,99,99,99
+MyMonster4,Fire,100,10,10
