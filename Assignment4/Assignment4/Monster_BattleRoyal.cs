@@ -128,14 +128,14 @@ namespace Assignment4
         public uint Turn { get; private set; }
         public uint MonsterCount { get; private set; }
 
-        public List<Monster> monsterList;
+        private List<Monster> mList;
 
         public Arena(string arenaName, uint capacity)
         {
             ArenaName = arenaName;
             Capacity = capacity;
 
-            monsterList = new List<Monster>((int)capacity);
+            mList = new List<Monster>((int)capacity);
             MonsterCount = 0;
             Turn = 0;
         }
@@ -183,7 +183,7 @@ namespace Assignment4
 
 
 
-                monsterList.Add(new Monster(name, elementType, health, attackStat, defense));
+                mList.Add(new Monster(name, elementType, health, attackStat, defense));
 
                 MonsterCount++;
                 if (MonsterCount >= Capacity)
@@ -198,35 +198,35 @@ namespace Assignment4
 
         public void GoToNextTurn()
         {
-            if (monsterList.Count < 2)
+            if (mList.Count < 2)
             {
                 return;
             }
 
 
-            List<int> removeList = new List<int>(monsterList.Count);
+            List<int> removeList = new List<int>(mList.Count);
 
 
-            for (int i = 0; i < monsterList.Count; i++)
+            for (int i = 0; i < mList.Count; i++)
             {
-                if (monsterList[i].Health <= 0)
+                if (mList[i].Health <= 0)
                 {
                     removeList.Add(i);
                     continue;
                 }
-                monsterList[i].Attack(monsterList[(int)((i + 1) % monsterList.Count)]);
+                mList[i].Attack(mList[(int)((i + 1) % mList.Count)]);
 
             }
             Turn += 1;
 
-            if (monsterList[0].Health <= 0)
+            if (mList[0].Health <= 0)
             {
                 removeList.Add(0);
             }
 
             for (int i = 0; i < removeList.Count; i++)
             {
-                monsterList.RemoveAt(removeList[i]);
+                mList.RemoveAt(removeList[i]);
             }
 
             MonsterCount -= (uint)removeList.Count;
@@ -236,18 +236,18 @@ namespace Assignment4
 
         public Monster GetHealthiestOrNull()
         {
-            if (monsterList.Count == 0)
+            if (mList.Count == 0)
             {
                 return null;
             }
 
-            Monster result = monsterList[0];
+            Monster result = mList[0];
 
-            for (int i = 1; i < monsterList.Count; i++)
+            for (int i = 1; i < mList.Count; i++)
             {
-                if (result.Health < monsterList[i].Health)
+                if (result.Health < mList[i].Health)
                 {
-                    result = monsterList[i];
+                    result = mList[i];
                 }
             }
 
