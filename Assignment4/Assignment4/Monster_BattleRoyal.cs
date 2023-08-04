@@ -200,6 +200,7 @@ namespace Assignment4
         {
             if (mList.Count < 2)
             {
+                MonsterCount = (uint)mList.Count;
                 return;
             }
 
@@ -230,7 +231,6 @@ namespace Assignment4
             }
 
             MonsterCount = (uint)mList.Count;
-            //MonsterCount = MonsterCount < (uint)removeList.Count ? 0 : MonsterCount - (uint)removeList.Count;
 
 
         }
