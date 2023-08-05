@@ -204,7 +204,7 @@ namespace Assignment4
                 return;
             }
 
-
+            /*
             List<int> removeList = new List<int>(mList.Count);
             
 
@@ -218,7 +218,7 @@ namespace Assignment4
                 mList[i].Attack(mList[(int)((i + 1) % mList.Count)]);
 
             }
-            Turn += 1;
+            
 
             if (mList[0].Health <= 0)
             {
@@ -232,7 +232,25 @@ namespace Assignment4
             }
 
             MonsterCount = (uint)mList.Count;
+            */
 
+
+            int index = 0;
+            while (index < mList.Count)
+            {
+                if (mList[index].Health <= 0)
+                {
+                    mList.RemoveAt(index);
+                    continue;
+                }
+
+                mList[index].Attack(mList[(int)((index + 1) % mList.Count)]);
+                index++;
+            }
+
+
+
+            Turn += 1;
 
         }
 
