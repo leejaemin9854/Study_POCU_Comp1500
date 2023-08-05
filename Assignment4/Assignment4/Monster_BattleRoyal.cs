@@ -222,12 +222,13 @@ namespace Assignment4
 
             if (mList[0].Health <= 0)
             {
-                removeList.Add(0);
+                removeList.Insert(0, 0);
             }
 
+            int cnt = 0;
             for (int i = 0; i < removeList.Count; i++)
             {
-                mList.RemoveAt(removeList[i]);
+                mList.RemoveAt(removeList[i] - cnt++);
             }
 
             MonsterCount = (uint)mList.Count;
