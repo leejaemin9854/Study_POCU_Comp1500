@@ -128,7 +128,7 @@ namespace Assignment4
         public uint Turn { get; private set; }
         public uint MonsterCount { get; private set; }
 
-        private List<Monster> mList;
+        public List<Monster> mList;
 
         public Arena(string arenaName, uint capacity)
         {
@@ -204,51 +204,31 @@ namespace Assignment4
                 return;
             }
 
-            /*
-            List<int> removeList = new List<int>(mList.Count);
             
-
+            
             for (int i = 0; i < mList.Count; i++)
             {
                 if (mList[i].Health <= 0)
                 {
-                    removeList.Add(i);
                     continue;
                 }
                 mList[i].Attack(mList[(int)((i + 1) % mList.Count)]);
 
             }
-            
 
-            if (mList[0].Health <= 0)
+
+            for (int i = 0; i < mList.Count; i++)
             {
-                removeList.Insert(0, 0);
-            }
-
-            int cnt = 0;
-            for (int i = 0; i < removeList.Count; i++)
-            {
-                mList.RemoveAt(removeList[i] - cnt++);
-            }
-
-            MonsterCount = (uint)mList.Count;
-            */
-
-
-            int index = 0;
-            while (index < mList.Count)
-            {
-                if (mList[index].Health <= 0)
+                if (mList[i].Health <= 0)
                 {
-                    mList.RemoveAt(index);
-                    continue;
+                    mList.RemoveAt(i);
                 }
 
-                mList[index].Attack(mList[(int)((index + 1) % mList.Count)]);
-                index++;
             }
 
 
+
+            MonsterCount = (uint)mList.Count;
 
             Turn += 1;
 
